@@ -1,0 +1,53 @@
+{% extends 'college/base.html' %}
+
+{% block body %}
+<div>
+  <a name="target1"></a>
+  <div class="jumbotron">
+    <h2 class="display-3">Treks</h2>
+  </div>
+  <div class="container-fluid">
+    <div class="row flex-row flex-nowrap">
+    {% if all_treks %}
+      {% for trek in all_treks %}
+        <div class="card" style="width: 20rem;">
+          <a href="{% url 'college:detailsT' trek.id %}">
+            <img class="card-img-top" src="{{ trek.card_pic }}" alt="Card image cap">
+          </a>
+          <div class="card-body">
+            <h4 class="card-title" align="center">{{ trek.place }}</h4>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      No albums to diplay
+    {% endif %}
+  </div>
+  </div>
+</div>
+
+<div>
+  <a name="target2"></a>
+  <div class="jumbotron">
+    <h2 class="display-3">Events</h2>
+  </div>
+  <div class="container-fluid">
+    <div class="row flex-row flex-nowrap">
+    {% if all_events %}
+      {% for event in all_events %}
+        <div class="card" style="width: 20rem;">
+          <a href="{% url 'college:detailsE' event.id %}">
+            <img class="card-img-top" src="{{ event.logo_link }}" alt="Card image cap">
+          </a>
+          <div class="card-body">
+            <h4 class="card-title" align="center">{{ event.name }}</h4>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      No albums to diplay
+    {% endif %}
+  </div>
+  </div>
+</div>
+{% endblock %}

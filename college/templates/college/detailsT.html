@@ -1,0 +1,19 @@
+{% extends 'college/base.html' %}
+
+{% block body %}
+  {% load static %}
+  <div class="jumbotron">
+    <h2 class="display-3">{{ trek }}</h2>
+  </div>
+  <div class="album text-muted">
+    <div class="container">
+      <div class="row">
+        <div class="card">
+          {% for pic in trek.pictures_set.all %}
+          <img src="{{ pic.file_link }}">
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
